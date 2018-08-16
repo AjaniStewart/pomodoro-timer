@@ -2,24 +2,40 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Pomodoro Technique Timer</title>
+        <title>Pomodoro Timer</title>
         <link href="reset.css" type="text/css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
         <link href="style.css" type="text/css" rel="stylesheet">
     </head>
     <body>
         <div class="container">
+            <div class="name">
+                Pomodoro Timer
+            </div>
             <div class="tabs">
                 <div id="short_break" class="tab">Short Break</div>
-                <div id="pomodoro" class="tab">Pomodoro</div>
+                <div id="pomodoro" class="tab active">Pomodoro</div>
                 <div id="long_break" class="tab">Long Break</div>
             </div>
             <div class="timer_container">
                 <div class="countdown">25:00</div>
-                <button class="start_pause">Start</button>
-                <button class="reset">Reset</button>
-                <button class="edit">Edit Times</button>
+                <div class="button_container">
+                    <button class="start_pause">Start</button>
+                    <button class="reset">Reset</button>
+                    <button class="edit">Edit Times</button>
+                </div>
             </div>
-            <div class="instructions"></div>
+            <div class="instructions">
+                <p class="instructions_title"><strong>Keyboard Controls</strong></p>
+                <p><strong>Space</strong> - Start/Pause</p>
+                <p><strong>Shift-R</strong> - Reset Timer</p>
+                <p><strong>Shift-P</strong> - Switch to Pomodoro</p>
+                <p><strong>Shift-L</strong> - Switch to Long Break</p>
+                <p><strong>Shift-S</strong> - Switch to Short Break</p>
+            </div>
+            <div class="thanks">
+                <p>Made by <a href="https://www.github.com/AjaniStewart/pomodoro-timer">Ajani Stewart</a></p>
+            </div>
         </div>
         <script src="main.js"></script>
     </body>

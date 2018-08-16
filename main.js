@@ -57,20 +57,32 @@ function switchTimer(duration) {
 }
 
 let currentActiveTab = "pomodoro";
+const shortBreakTab = document.querySelector("#short_break");
+const longBreakTab = document.querySelector("#long_break");
+const pomodoroTab = document.querySelector("#pomodoro");
 
 function switchTab(tab) {
     currentActiveTab = tab;
     switch (tab) {
         case "pomodoro":
             switchTimer(pomodoroDuration);
+            shortBreakTab.classList.remove("active");
+            longBreakTab.classList.remove("active");
+            pomodoroTab.classList.add("active");
             break;
 
         case "short_break":
             switchTimer(shortBreakDuration);
+            longBreakTab.classList.remove("active");
+            pomodoroTab.classList.remove("active");
+            shortBreakTab.classList.add("active");
             break;
 
         case "long_break":
             switchTimer(longBreakDuration);
+            pomodoroTab.classList.remove("active");
+            shortBreakTab.classList.remove("active");
+            longBreakTab.classList.add("active");
             break;
     }
 }
@@ -91,8 +103,10 @@ function startOrPauseTimer() {
 function changeButtonLabel() {
     if (timerActive) {
         startPauseButton.textContent = "Pause";
+        startPauseButton.style.background = "red";
     } else {
         startPauseButton.textContent = "Start"
+        startPauseButton.style.background = "green";
     }
 }
 //event listeners
