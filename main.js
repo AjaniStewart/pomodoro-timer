@@ -13,7 +13,7 @@ function startTimer(duration) {
     timerActive = true;
     changeButtonLabel();
     currentTimerId += 1;
-    return setInterval(() => { 
+    currentTimerId = setInterval(() => { 
         displayTimeLeft(duration);
         if (duration < 1000) {
             stopTimer(currentTimerId);
