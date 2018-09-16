@@ -3,7 +3,7 @@ let pomodoroDuration = 25 * 60 * 1000; //25 mins
 let shortBreakDuration = 5 * 60 * 1000; //5 mins
 let longBreakDuration = 10 * 60 * 1000; //10 mins
 
-//main functions
+//misc variables
 let alarmAudio = new Audio("assests/sounds/alarm.wav");
 let currentTimerId = 0;
 let timerActive = false;
