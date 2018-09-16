@@ -9,6 +9,7 @@ let currentTimerId = 0;
 let timerActive = false;
 
 function startTimer(duration) {
+    if (duration === 0) return;
     duration -= 1000;
     timerActive = true;
     changeButtonLabel();
