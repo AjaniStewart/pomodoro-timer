@@ -8,6 +8,8 @@ let alarmAudio = new Audio("assests/sounds/alarm.wav");
 let currentTimerId = 0;
 let timerActive = false;
 
+Notification.requestPermission();
+
 function startTimer(duration) {
     if (duration === 0) return;
     duration -= 1000;
@@ -17,6 +19,22 @@ function startTimer(duration) {
         displayTimeLeft(duration);
         if (duration < 1000) {
             stopTimer(currentTimerId);
+            let notOps = {lang: "en-US"};
+            let notificationTitle = "Time's Up!";
+            if (currentActiveTab.indexOf("break") === -1 ) {
+              notOps = {...notOps, body: "Time to take a break"};
+            } else {
+              notOps = {...notOps, body: "Time to get back to work!"};
+            }
+            if (Notification.permission === "granted") {
+              let notification = new Notification(notificationTitle, notOps);
+            } else if (Notification.permission !== "denied") {
+              Notification.requestPermission().then(permission => {
+                if (permission === "granted") {
+                  let notification = new Notification(notificationTitle, notOps);
+                }
+              })
+            }
             alarmAudio.play();
         }
         duration -= 1000;
